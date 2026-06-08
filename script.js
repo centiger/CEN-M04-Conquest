@@ -3,6 +3,7 @@
   const canvas = document.getElementById('canvas');
   const resetBtn = document.getElementById('resetView');
   const zoomInBtn = document.getElementById('zoomIn');
+  const zoomOutBtn = document.getElementById('zoomOut');
   const dialog = document.getElementById('infoDialog');
   const dialogTitle = document.getElementById('dialogTitle');
   const dialogText = document.getElementById('dialogText');
@@ -13,6 +14,7 @@
   const pointers = new Map();
   let lastTap = 0;
   let pinchStart = null;
+  let fitScale = 1;
 
   function clampPan() {
     const vw = viewport.clientWidth;
@@ -34,8 +36,9 @@
   function fitView() {
     const vw = viewport.clientWidth;
     const vh = viewport.clientHeight;
-    state.minScale = Math.min(vw / base.w, vh / base.h) * 0.98;
-    state.scale = Math.max(vw / base.w, state.minScale);
+    state.minScale = Math.min(vw / base.w, vh / base.h) * 0.92;
+    fitScale = Math.max(vw / base.w, state.minScale);
+    state.scale = fitScale;
     state.x = (vw - base.w * state.scale) / 2;
     state.y = 0;
     apply();
@@ -63,7 +66,7 @@
     viewport.classList.add('dragging');
     if (pointers.size === 2) {
       const [a, b] = [...pointers.values()];
-      pinchStart = { dist: distance(a, b), scale: state.scale, mid: midpoint(a, b) };
+      pinchStart = { dist: distance(a, b), scale: state.scale };
     }
   });
 
@@ -77,9 +80,13 @@
       apply();
     } else if (pointers.size === 2) {
       const [a, b] = [...pointers.values()];
+      const currentDist = distance(a, b);
       const mid = midpoint(a, b);
-      const next = pinchStart.scale * (distance(a, b) / pinchStart.dist);
-      zoomAt(mid.x, mid.y, next);
+      if (pinchStart && pinchStart.dist > 0) {
+        const next = state.scale * (currentDist / pinchStart.dist);
+        zoomAt(mid.x, mid.y, next);
+      }
+      pinchStart = { dist: currentDist, scale: state.scale };
     }
   });
 
@@ -93,7 +100,7 @@
 
   viewport.addEventListener('dblclick', (e) => {
     e.preventDefault();
-    const targetScale = state.scale < 1.1 ? 1.45 : Math.max(state.minScale, viewport.clientWidth / base.w);
+    const targetScale = state.scale < fitScale * 1.25 ? fitScale * 1.85 : fitScale;
     zoomAt(e.clientX, e.clientY, targetScale);
   });
 
@@ -101,7 +108,7 @@
     const now = Date.now();
     if (now - lastTap < 280 && e.changedTouches[0]) {
       const t = e.changedTouches[0];
-      const targetScale = state.scale < 1.1 ? 1.45 : Math.max(state.minScale, viewport.clientWidth / base.w);
+      const targetScale = state.scale < fitScale * 1.25 ? fitScale * 1.85 : fitScale;
       zoomAt(t.clientX, t.clientY, targetScale);
     }
     lastTap = now;
@@ -131,6 +138,7 @@
 
   closeDialog.addEventListener('click', () => dialog.close());
   resetBtn.addEventListener('click', fitView);
+  zoomOutBtn.addEventListener('click', () => zoomAt(window.innerWidth / 2, window.innerHeight / 2, state.scale / 1.22));
   zoomInBtn.addEventListener('click', () => zoomAt(window.innerWidth / 2, window.innerHeight / 2, state.scale * 1.22));
   window.addEventListener('resize', fitView);
   window.addEventListener('load', fitView);

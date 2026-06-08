@@ -13,7 +13,7 @@ html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background:
 button { font-family: inherit; }
 #app { width: 100vw; height: 100dvh; overflow: hidden; position: relative; background: radial-gradient(circle at top, #2a1b0d 0, #090604 65%); }
 
-.topbar { position: fixed; top: 0; left: 0; right: 0; height: var(--top-h); z-index: 40; display: grid; grid-template-columns: 84px 1fr 46px; gap: 6px; align-items: center; padding: 6px 8px; background: linear-gradient(180deg, rgba(8,5,3,.94), rgba(8,5,3,.68)); border-bottom: 1px solid rgba(213,164,71,.28); backdrop-filter: blur(8px); }
+.topbar { position: fixed; top: 0; left: 0; right: 0; height: var(--top-h); z-index: 40; display: grid; grid-template-columns: 84px 1fr 40px 40px; gap: 6px; align-items: center; padding: 6px 8px; background: linear-gradient(180deg, rgba(8,5,3,.94), rgba(8,5,3,.68)); border-bottom: 1px solid rgba(213,164,71,.28); backdrop-filter: blur(8px); }
 .title-wrap { text-align: center; line-height: 1.12; overflow: hidden; white-space: nowrap; }
 .title-wrap strong { display:block; font-size: 15px; letter-spacing: -.02em; color: var(--gold-soft); }
 .title-wrap span { display:block; margin-top: 3px; font-size: 10px; color: rgba(255,244,207,.72); }
@@ -21,10 +21,10 @@ button { font-family: inherit; }
 
 .viewport { position: fixed; top: var(--top-h); left: 0; right: 0; bottom: var(--footer-h); overflow: hidden; touch-action: none; cursor: grab; }
 .viewport.dragging { cursor: grabbing; }
-.canvas { position: absolute; left: 0; top: 0; width: 887px; height: 1773px; transform-origin: 0 0; will-change: transform; user-select: none; }
-.matrix-bg { position: absolute; inset: 0; width: 887px; height: 1773px; display: block; pointer-events: none; user-select: none; }
+.canvas { position: absolute; left: 0; top: 0; width: 887px; height: 1773px; aspect-ratio: 887 / 1773; transform-origin: 0 0; will-change: transform; user-select: none; }
+.matrix-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; user-select: none; transform: translateZ(0); }
 
-.button-set { position: absolute; left: 7.5%; width: 73%; display: grid; grid-template-columns: 1.18fr 1fr 1fr; gap: 7px; z-index: 10; }
+.button-set { position: absolute; left: 14.2%; width: 72.5%; display: grid; grid-template-columns: 1.18fr 1fr 1fr; gap: 7px; z-index: 10; }
 .button-set button { min-height: 34px; padding: 0 5px; border: 1px solid rgba(255,222,148,.64); border-radius: 11px; background: linear-gradient(180deg, rgba(55,37,15,.92), rgba(17,10,5,.94)); box-shadow: 0 4px 12px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08); color: #ffe8a8; font-size: 13px; font-weight: 800; letter-spacing: -.06em; text-shadow: 0 1px 2px #000; white-space: nowrap; }
 .button-set button:active { transform: translateY(1px); filter: brightness(1.12); }
 .row-1 { top: 22.5%; }
@@ -45,6 +45,6 @@ button { font-family: inherit; }
 .dialog-actions button { min-width: 88px; height: 38px; border-radius: 12px; border: 1px solid var(--line); background: rgba(52,35,16,.96); color: var(--gold-soft); font-weight: 800; }
 
 @media (max-width: 420px) {
-  .button-set { left: 6.8%; width: 75%; gap: 5px; }
+  .button-set { left: 14.2%; width: 72.5%; gap: 5px; }
   .button-set button { min-height: 31px; font-size: 11px; border-radius: 9px; letter-spacing: -.08em; }
 }
