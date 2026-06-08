@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+<title>정복시대 허브</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <button onclick="location.href='../index.html'">← Matrix</button>
+    <button onclick="openList()">허브 목록</button>
+  </header>
+
+  <section class="head">
+    <div class="hubSymbol" id="hubIcon"></div>
+    <h1 id="title"></h1>
+    <div class="sub" id="subtitle"></div>
+    <div class="theme" id="theme"></div>
+  </section>
+
+  <section class="mapCard mapFirst">
+    <img id="map" alt="허브 지도"/>
+    <div class="mapText" id="mapText"></div>
+  </section>
+
+  <section class="grid">
+    <article class="card"><h2>대표성구</h2><div class="verse" id="verse"></div></article>
+    <article class="card"><h2>핵심사건</h2><ul id="events"></ul></article>
+    <article class="card"><h2>핵심의미</h2><ul id="meaning"></ul></article>
+    <article class="card"><h2>연결탐험</h2><ul id="connections"></ul></article>
+    <article class="card"><h2>통합탐험</h2><ul id="integrated"></ul></article>
+    <article class="card"><h2>관련성경</h2><ul id="refs"></ul></article>
+    <article class="card message"><h2>핵심메시지</h2><p id="message"></p></article>
+  </section>
+</div>
+
+<nav class="bottom">
+  <button id="prevBtn">이전</button>
+  <button onclick="location.href='../index.html'">Matrix</button>
+  <button id="nextBtn">다음</button>
+</nav>
+
+<div class="listModal" id="listModal" aria-modal="true" role="dialog">
+  <div class="listPanel">
+    <button class="listClose" onclick="closeList()">×</button>
+    <h2>정복시대 허브 목록</h2>
+    <div class="hubList" id="hubList"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

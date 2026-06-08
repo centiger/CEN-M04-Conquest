@@ -79,7 +79,7 @@
   }
 
   viewport.addEventListener('pointerdown', (e) => {
-    if (e.target.closest('button')) return;
+    if (e.target.closest('button, a')) return;
     e.preventDefault();
     viewport.setPointerCapture(e.pointerId);
     pointers.set(e.pointerId, e);
@@ -131,18 +131,22 @@
       const group = btn.closest('.button-set');
       const eventName = group.dataset.event;
       const kind = btn.dataset.kind;
-      const label = kind === 'hub' ? `${eventName} 허브` : kind === 'link' ? `${eventName} 연결탐험` : `${eventName} 통합탐험`;
+      const label = kind === 'link' ? `${eventName} 연결탐험` : `${eventName} 통합탐험`;
       dialogTitle.textContent = label;
-      dialogText.textContent = '정복시대 Matrix 1.0 위치 확인용 임시 창입니다. 다음 단계에서 실제 허브 페이지와 탐험 내용을 연결합니다.';
+      dialogText.textContent = eventName === '요단강 도하'
+        ? '요단강 도하 허브가 먼저 통합되었습니다. 연결탐험과 통합탐험 상세창은 허브 표준 확정 후 연결합니다.'
+        : '해당 탐험은 다음 단계에서 실제 내용으로 연결합니다.';
       dialog.showModal();
     });
   });
 
   document.querySelectorAll('.footer button').forEach(btn => {
     btn.addEventListener('click', () => {
+      const key = btn.dataset.footer;
+      if (key === 'hub') { location.href = 'hubs/index.html?hub=jordan'; return; }
       const label = btn.textContent.trim();
       dialogTitle.textContent = label;
-      dialogText.textContent = '첫 버전에서는 하단 메뉴가 메인 이미지와 분리되어 고정되는지 확인합니다. 실제 링크는 다음 단계에서 연결합니다.';
+      dialogText.textContent = '이 메뉴의 실제 링크는 다음 단계에서 연결합니다.';
       dialog.showModal();
     });
   });

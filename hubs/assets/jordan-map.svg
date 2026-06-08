@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12202a"/>
+      <stop offset="1" stop-color="#071018"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#176b8a"/>
+      <stop offset="0.5" stop-color="#3bb7d7"/>
+      <stop offset="1" stop-color="#176b8a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <style>
+      .label{font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;font-weight:900;fill:#fff2c2;font-size:32px;letter-spacing:-1.5px}
+      .small{font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;font-weight:750;fill:#f4d38d;font-size:21px;letter-spacing:-.8px}
+      .node{fill:#1c2024;stroke:#f2c76f;stroke-width:3}
+      .gold{fill:#f2c76f}.route{fill:none;stroke:#f2c76f;stroke-width:8;stroke-linecap:round;stroke-dasharray:16 16}.land{fill:#7b5422;opacity:.62}.hill{fill:#3a4b2d;opacity:.54}
+    </style>
+  </defs>
+  <rect width="900" height="520" fill="url(#bg)"/>
+  <path class="land" d="M0 0h382c-58 88-94 173-94 272 0 85 38 170 94 248H0z"/>
+  <path class="land" d="M527 0h373v520H517c66-98 95-187 86-281-8-82-36-154-76-239z"/>
+  <path d="M423-20 C377 74 439 139 408 226 C370 331 442 408 405 546" fill="none" stroke="#0b2938" stroke-width="112" opacity=".72"/>
+  <path d="M443-20 C397 74 459 139 428 226 C390 331 462 408 425 546" fill="none" stroke="url(#river)" stroke-width="70" opacity=".9"/>
+  <path d="M422 227 C399 242 389 263 405 285 C426 314 480 314 507 288" fill="none" stroke="#071018" stroke-width="82" opacity=".92" stroke-linecap="round"/>
+  <path d="M172 260 C280 232 344 248 408 262 M500 277 C594 285 664 250 759 210" class="route"/>
+  <polygon points="747,210 708,190 715,232" fill="#f2c76f"/>
+  <g filter="url(#shadow)">
+    <rect class="node" x="56" y="202" rx="22" ry="22" width="205" height="100"/>
+    <text class="label" x="158" y="249" text-anchor="middle">싯딤</text>
+    <text class="small" x="158" y="279" text-anchor="middle">광야 마지막 진영</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect class="node" x="335" y="172" rx="22" ry="22" width="215" height="116"/>
+    <text class="label" x="442" y="221" text-anchor="middle">요단강</text>
+    <text class="small" x="442" y="252" text-anchor="middle">언약궤 앞세운 도하</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect class="node" x="610" y="124" rx="22" ry="22" width="205" height="100"/>
+    <text class="label" x="712" y="171" text-anchor="middle">길갈</text>
+    <text class="small" x="712" y="201" text-anchor="middle">정복의 전진기지</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect class="node" x="634" y="315" rx="22" ry="22" width="210" height="100"/>
+    <text class="label" x="739" y="362" text-anchor="middle">여리고</text>
+    <text class="small" x="739" y="392" text-anchor="middle">다음 정복 목표</text>
+  </g>
+  <path d="M704 226 C704 260 720 289 738 314" fill="none" stroke="#f2c76f" stroke-width="6" stroke-dasharray="10 12" opacity=".8"/>
+  <circle cx="462" cy="285" r="9" class="gold"/><circle cx="482" cy="289" r="9" class="gold"/><circle cx="502" cy="286" r="9" class="gold"/>
+  <text class="small" x="472" y="345" text-anchor="middle">열두 돌 기념</text>
+  <text class="small" x="466" y="74" text-anchor="middle" fill="#fff2c2">요단강 도하 경로</text>
+</svg>
