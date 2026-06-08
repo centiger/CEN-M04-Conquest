@@ -1,4 +1,4 @@
-const CACHE = 'cen-conquest-matrix-v11-linkfix';
+const CACHE = 'cen-conquest-matrix-v12-jerichohub';
 const ASSETS = [
   './',
   './index.html',
@@ -11,7 +11,8 @@ const ASSETS = [
   './hubs/index.html',
   './hubs/style.css',
   './hubs/js/app.js',
-  './hubs/assets/jordan-map.png'
+  './hubs/assets/jordan-map.png',
+  './hubs/assets/jericho-map.png'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
