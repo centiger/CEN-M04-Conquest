@@ -32,7 +32,7 @@ button { font-family: inherit; }
 .button-set button:active { transform: translateY(1px); filter: brightness(1.12); }
 .row-1 { top: 18.2%; }
 .row-2 { top: 35.0%; }
-.row-3 { top: 51.8%; }
+.row-3 { top: 53.0%; }
 .row-4 { top: 71.0%; }
 .row-5 { top: 88.2%; }
 

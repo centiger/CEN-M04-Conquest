@@ -9,7 +9,6 @@
   const base = { w: 846, h: 1858 };
   const state = { scale: 1, minScale: 0.35, maxScale: 3.2, x: 0, y: 0 };
   const pointers = new Map();
-  let lastTap = 0;
   let pinchStart = null;
   let fitScale = 1;
 
@@ -65,60 +64,66 @@
   function midpoint(a, b) { return { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 }; }
   function distance(a, b) { return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY); }
 
+  function beginPinch() {
+    const [a, b] = [...pointers.values()];
+    const rect = viewport.getBoundingClientRect();
+    const mid = midpoint(a, b);
+    const px = mid.x - rect.left;
+    const py = mid.y - rect.top;
+    pinchStart = {
+      dist: distance(a, b),
+      scale: state.scale,
+      contentX: (px - state.x) / state.scale,
+      contentY: (py - state.y) / state.scale
+    };
+  }
+
   viewport.addEventListener('pointerdown', (e) => {
     if (e.target.closest('button')) return;
+    e.preventDefault();
     viewport.setPointerCapture(e.pointerId);
     pointers.set(e.pointerId, e);
     viewport.classList.add('dragging');
-    if (pointers.size === 2) {
-      const [a, b] = [...pointers.values()];
-      pinchStart = { dist: distance(a, b), scale: state.scale };
-    }
+    if (pointers.size === 2) beginPinch();
   });
 
   viewport.addEventListener('pointermove', (e) => {
     if (!pointers.has(e.pointerId)) return;
+    e.preventDefault();
     const prev = pointers.get(e.pointerId);
     pointers.set(e.pointerId, e);
+
     if (pointers.size === 1 && !pinchStart) {
       state.x += e.clientX - prev.clientX;
       state.y += e.clientY - prev.clientY;
       apply();
-    } else if (pointers.size === 2) {
+      return;
+    }
+
+    if (pointers.size === 2 && pinchStart) {
       const [a, b] = [...pointers.values()];
-      const currentDist = distance(a, b);
+      const rect = viewport.getBoundingClientRect();
       const mid = midpoint(a, b);
-      if (pinchStart && pinchStart.dist > 0) {
-        const next = state.scale * (currentDist / pinchStart.dist);
-        zoomAt(mid.x, mid.y, next);
-      }
-      pinchStart = { dist: currentDist, scale: state.scale };
+      const px = mid.x - rect.left;
+      const py = mid.y - rect.top;
+      const ratio = distance(a, b) / pinchStart.dist;
+      state.scale = Math.min(state.maxScale, Math.max(state.minScale, pinchStart.scale * ratio));
+      state.x = px - pinchStart.contentX * state.scale;
+      state.y = py - pinchStart.contentY * state.scale;
+      apply();
     }
   });
 
   function endPointer(e) {
     pointers.delete(e.pointerId);
-    if (pointers.size < 2) pinchStart = null;
+    if (pointers.size === 2) beginPinch();
+    else pinchStart = null;
     if (pointers.size === 0) viewport.classList.remove('dragging');
   }
   viewport.addEventListener('pointerup', endPointer);
   viewport.addEventListener('pointercancel', endPointer);
 
-  viewport.addEventListener('dblclick', (e) => {
-    e.preventDefault();
-    const targetScale = state.scale < fitScale * 1.25 ? fitScale * 1.85 : fitScale;
-    zoomAt(e.clientX, e.clientY, targetScale);
-  });
-
-  viewport.addEventListener('touchend', (e) => {
-    const now = Date.now();
-    if (now - lastTap < 280 && e.changedTouches[0]) {
-      const t = e.changedTouches[0];
-      const targetScale = state.scale < fitScale * 1.25 ? fitScale * 1.85 : fitScale;
-      zoomAt(t.clientX, t.clientY, targetScale);
-    }
-    lastTap = now;
-  }, { passive: true });
+  // 모바일 기본 조작감에 맞춰 더블탭 확대는 제거하고, 한 손가락 드래그 + 두 손가락 핀치만 사용한다.
 
   document.querySelectorAll('.button-set button').forEach(btn => {
     btn.addEventListener('click', (e) => {
