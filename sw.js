@@ -1,4 +1,4 @@
-const CACHE = 'cen-conquest-matrix-v13-conquesthub';
+const CACHE = 'cen-conquest-matrix-v14-inheritancehub';
 const ASSETS = [
   './',
   './index.html',
@@ -13,7 +13,8 @@ const ASSETS = [
   './hubs/js/app.js',
   './hubs/assets/jordan-map.png',
   './hubs/assets/jericho-map.png',
-  './hubs/assets/conquest-map.png'
+  './hubs/assets/conquest-map.png',
+  './hubs/assets/inheritance-map.png'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
