@@ -18,11 +18,20 @@
     const vh = viewport.clientHeight;
     const sw = base.w * state.scale;
     const sh = base.h * state.scale;
-    const margin = 80;
+    const xMargin = 80;
+
+    // 좌우는 약간의 여유를 두고 이동 허용
     if (sw <= vw) state.x = (vw - sw) / 2;
-    else state.x = Math.min(margin, Math.max(vw - sw - margin, state.x));
-    if (sh <= vh) state.y = (vh - sh) / 2;
-    else state.y = Math.min(margin, Math.max(vh - sh - margin, state.y));
+    else state.x = Math.min(xMargin, Math.max(vw - sw - xMargin, state.x));
+
+    // 세로는 아래로 끌어내리지 않게 제한하고, 위로만 이동
+    // 마지막 영역이 하단 고정 메뉴 위에서 멈추도록 과도한 하단 노출을 차단
+    if (sh <= vh) {
+      state.y = 0;
+    } else {
+      const minY = vh - sh + 12;
+      state.y = Math.min(0, Math.max(minY, state.y));
+    }
   }
 
   function apply() {
