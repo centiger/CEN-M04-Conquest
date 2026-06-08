@@ -1,4 +1,4 @@
-const CACHE = 'cen-conquest-matrix-v20-compactbuttons';
+const CACHE = 'cen-conquest-matrix-v21-final-tweak';
 const ASSETS = [
   './',
   './index.html',

@@ -67,7 +67,7 @@ const HUBS = [
     integrated:['구속의 흐름: 출애굽의 은혜 → 정복의 은혜 → 언약의 응답','언약의 흐름: 약속의 땅 → 기업 분배 → 언약 갱신','하나님 나라의 흐름: 땅을 받은 백성 → 하나님을 섬기는 공동체','예배의 흐름: 실로 성막 → 세겜 언약 → 사사시대의 신앙 위기','사사시대 연결: 세겜의 고백 → 여호수아 사망 → 각기 자기 소견대로 행함'],
     refs:['여호수아 24장','창세기 12장','창세기 33장','신명기 27장','여호수아 8장','여호수아 23장','사사기 2장'],
     message:'세겜 언약은 정복시대의 결론이다. 하나님께서 약속의 땅을 주셨다면, 이제 백성은 누구를 섬길 것인지 선택해야 한다. 여호수아는 은혜를 기억하게 한 뒤 결단을 요구했고, 백성은 여호와만 섬기겠다고 고백하였다. 정복의 완성은 소유가 아니라 헌신이다.',
-    prev:'inheritance', next:null, nextEra:{label:'사사시대 매트릭스', url:'https://centiger.github.io/CEN-Judges-Matrix/', desc:'세겜의 언약 고백 이후, 여호수아 사망과 사사시대의 신앙 위기로 흐름이 이어집니다.'}
+    prev:'inheritance', next:null, nextEra:{label:'사사시대 Matrix', url:'#', desc:'세겜의 언약 고백 이후, 여호수아 사망과 사사시대의 신앙 위기로 흐름이 이어집니다.'}
   }
 ];
 const byId = Object.fromEntries(HUBS.map(h=>[h.id,h]));
@@ -108,11 +108,11 @@ function render(id){
   }else if(h.nextEra){
     next.textContent=h.nextEra.label||'다음 시대';
     next.classList.add('next-era');
-    next.onclick=()=>{ location.href=h.nextEra.url; };
-    // 마지막 세겜 언약 허브에서는 하단 Matrix 버튼도 다음 시대 Matrix로 보낸다.
+    next.onclick=()=>{ if(h.nextEra.url && h.nextEra.url !== '#') location.href=h.nextEra.url; };
+    // 마지막 세겜 언약 허브에서도 가운데 버튼은 정복시대 메인 Matrix로 유지한다.
     if(matrix){
-      matrix.textContent='사사시대 Matrix';
-      matrix.onclick=()=>{ location.href=h.nextEra.url; };
+      matrix.textContent='Matrix';
+      matrix.onclick=()=>{ location.href='../index.html'; };
     }
   }else{
     next.textContent='Matrix';
@@ -126,7 +126,7 @@ function render(id){
       document.getElementById('nextEraDesc').textContent=h.nextEra.desc||'';
       const eraBtn=document.getElementById('nextEraBtn');
       eraBtn.textContent=h.nextEra.label||'다음 시대';
-      eraBtn.onclick=()=>{ location.href=h.nextEra.url; };
+      eraBtn.onclick=()=>{ if(h.nextEra.url && h.nextEra.url !== '#') location.href=h.nextEra.url; };
     }else{
       eraCard.style.display='none';
     }
