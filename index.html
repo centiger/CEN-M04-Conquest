@@ -11,6 +11,18 @@
   <title>CEN Bible 정복시대 Matrix</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
+
+<style id="CEN-UNIFIED-FOOTER-V5-CSS">
+body{padding-bottom:92px!important}
+.unifiedDock{position:fixed!important;left:50%!important;bottom:0!important;transform:translateX(-50%)!important;width:100%!important;max-width:560px!important;z-index:3000!important;padding:5px 10px calc(7px + env(safe-area-inset-bottom))!important;background:linear-gradient(to top,rgba(4,8,12,.98),rgba(9,18,26,.92))!important;border-top:1px solid rgba(247,216,137,.24)!important;box-shadow:0 -10px 24px rgba(0,0,0,.42)!important;backdrop-filter:blur(16px)!important;display:block!important;min-height:auto!important}
+.unifiedDock .coreFlow{margin:0 0 4px!important;text-align:center!important;color:#f7d889!important;font-weight:900!important;line-height:1.18!important;font-size:clamp(10px,2.65vw,14px)!important;letter-spacing:-.055em!important;text-shadow:0 2px 6px rgba(0,0,0,.85)!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+.unifiedDock .coreFlow small{display:block!important;margin-bottom:1px!important;color:#d7b565!important;font-size:clamp(7px,1.9vw,10px)!important;font-weight:800!important;letter-spacing:-.03em!important;opacity:.95!important}
+.unifiedDock .unifiedNav{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:5px!important;width:100%!important;margin:0!important;padding:0!important}
+.unifiedDock .action{min-height:34px!important;border:1.2px solid rgba(247,216,137,.42)!important;border-radius:10px!important;background:linear-gradient(180deg,rgba(18,28,36,.92),rgba(8,15,22,.9))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 5px 12px rgba(0,0,0,.30)!important;color:#fff4d8!important;text-decoration:none!important;font-size:clamp(10px,2.55vw,13px)!important;font-weight:950!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1.0!important;text-align:center!important;letter-spacing:-.06em!important;text-shadow:0 2px 5px rgba(0,0,0,.75)!important;padding:0 2px!important;cursor:pointer!important}
+.unifiedDock .action.main,.unifiedDock .action[data-link="hub"],.unifiedDock .action[data-footer="hub"]{background:linear-gradient(180deg,#d49a22,#9b660d)!important;border-color:rgba(255,224,142,.82)!important;color:#fff8e6!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 5px 13px rgba(0,0,0,.34)!important}
+@media(min-width:680px){.unifiedDock{border-radius:24px 24px 0 0!important}}
+</style>
+
 </head>
 <body>
   <div id="app">
@@ -25,45 +37,42 @@
 
         <div class="button-set row-1" data-event="요단강 도하">
           <a class="hub-button" href="hubs/index.html?hub=jordan" data-kind="hub"><span>🌊</span><b>요단강 도하 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>연결탐험</b></button>
+          <button data-kind="link"><span>🔗</span><b>주제탐험</b></button>
           <button data-kind="integrated"><span>✦</span><b>통합탐험</b></button>
         </div>
         <div class="button-set row-2" data-event="여리고 함락">
           <a class="hub-button" href="hubs/index.html?hub=jericho" data-kind="hub"><span>🏰</span><b>여리고 함락 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>연결탐험</b></button>
+          <button data-kind="link"><span>🔗</span><b>주제탐험</b></button>
           <button data-kind="integrated"><span>✦</span><b>통합탐험</b></button>
         </div>
         <div class="button-set row-3" data-event="가나안 정복">
           <a class="hub-button" href="hubs/index.html?hub=conquest" data-kind="hub"><span>⚔️</span><b>가나안 정복 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>연결탐험</b></button>
+          <button data-kind="link"><span>🔗</span><b>주제탐험</b></button>
           <button data-kind="integrated"><span>✦</span><b>통합탐험</b></button>
         </div>
         <div class="button-set row-4" data-event="기업 분배">
           <a class="hub-button" href="hubs/index.html?hub=inheritance" data-kind="hub"><span>🗺️</span><b>기업 분배 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>연결탐험</b></button>
+          <button data-kind="link"><span>🔗</span><b>주제탐험</b></button>
           <button data-kind="integrated"><span>✦</span><b>통합탐험</b></button>
         </div>
         <div class="button-set row-5" data-event="세겜 언약">
           <a class="hub-button" href="hubs/index.html?hub=shechem" data-kind="hub"><span>📜</span><b>세겜 언약 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>연결탐험</b></button>
+          <button data-kind="link"><span>🔗</span><b>주제탐험</b></button>
           <button data-kind="integrated"><span>✦</span><b>통합탐험</b></button>
         </div>
 
       </section>
     </main>
 
-    <aside class="flow-dock" aria-label="정복시대 핵심흐름">
-      <strong>정복시대 핵심흐름</strong>
-      <span>요단강 › 여리고 › 정복 › 기업 › 세겜</span>
-    </aside>
-
-    <nav class="footer" aria-label="하단 메뉴">
-      <button type="button" data-footer="home"><span>⌂</span><b>홈</b></button>
-      <button type="button" data-footer="all"><span>◎</span><b>전체</b></button>
-      <button type="button" data-footer="hub"><span>▣</span><b>허브</b></button>
-      <button type="button" data-footer="prev"><span>‹</span><b>이전</b></button>
-      <button type="button" data-footer="next" class="next"><span>›</span><b>사사시대</b></button>
-    </nav>
+    <footer class="footer actions unifiedDock" aria-label="정복시대 하단 네비게이터">
+  <div class="coreFlow"><small>정복시대 핵심흐름</small>요단강 → 여리고 → 정복 → 기업 → 세겜</div>
+  <nav class="unifiedNav" aria-label="하단 메뉴">
+    <button class="action" type="button" data-link="timeline" data-footer="timeline">성경연표</button>
+    <button class="action" type="button" data-link="connect" data-footer="connect">주제탐험</button>
+    <button class="action" type="button" data-link="overview" data-footer="overview">한눈에 성경</button>
+    <button class="action main" type="button" data-link="hub" data-footer="hub">허브</button>
+  </nav>
+</footer>
   </div>
 
   <dialog id="infoDialog" class="dialog">
@@ -77,5 +86,25 @@
   </dialog>
 
   <script src="script.js"></script>
+
+<script id="CEN-UNIFIED-FOOTER-V5-LINKS">
+(function(){
+  const links={
+    timeline:'https://centiger.github.io/CEN-Chronology/?view=timeline',
+    connect:'https://centiger.github.io/CEN-Chronology/',
+    overview:'https://centiger.github.io/CEN-Bible2.0/#overview66'
+  };
+  document.addEventListener('click',function(e){
+    const btn=e.target.closest && e.target.closest('.unifiedDock .action');
+    if(!btn) return;
+    const key=btn.dataset.link || btn.dataset.footer || '';
+    if(key==='timeline'||key==='connect'||key==='overview'){
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      location.href=links[key];
+    }
+  },true);
+})();
+</script>
+
 </body>
 </html>
