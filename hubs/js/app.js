@@ -134,9 +134,33 @@ const byId = Object.fromEntries(HUBS.map(h=>[h.id,h]));
 const params = new URLSearchParams(location.search);
 let current = params.get('hub') || 'jordan';
 if(!byId[current]) current='jordan';
+
 function fillList(id, items){
-  const el=document.getElementById(id); el.innerHTML='';
-  (items||['다음 단계에서 세부 내용을 연결합니다.']).forEach(t=>{const li=document.createElement('li');li.textContent=t;el.appendChild(li);});
+  const el=document.getElementById(id);
+  if(!el) return;
+  if(id==='connections' || id==='integrated'){
+    el.innerHTML=(items||[]).map(t=>{
+      let s=String(t||'');
+      let title='', body=s;
+      if(s.includes('|')){
+        const a=s.split('|');
+        title=a.shift().trim();
+        body=a.join('|').trim();
+      }
+      if(title.includes('연결 흐름') || title.includes('성경 전체 흐름')){
+        body=body.split('→').map(v=>v.trim()).filter(Boolean).join('<br>↓<br>');
+      }
+      body=body.replaceAll('|','<br>');
+      return `<div class="exploreCard"><b>${title}</b><p>${body}</p></div>`;
+    }).join('');
+    return;
+  }
+  el.innerHTML='';
+  (items||['다음 단계에서 세부 내용을 연결합니다.']).forEach(t=>{
+    const li=document.createElement('li');
+    li.textContent=t;
+    el.appendChild(li);
+  });
 }
 
 function renderExplore(items){
