@@ -138,6 +138,7 @@ function fillList(id, items){
   const el=document.getElementById(id); el.innerHTML='';
   (items||['다음 단계에서 세부 내용을 연결합니다.']).forEach(t=>{const li=document.createElement('li');li.textContent=t;el.appendChild(li);});
 }
+
 function renderExplore(items){
   function escapeLocal(s){
     if(typeof escapeHtml==='function') return escapeHtml(String(s||''));
@@ -149,8 +150,10 @@ function renderExplore(items){
   }
   function iconForStep(s){
     const t=String(s||'');
-    if(/요단|도하|강/.test(t)) return '🌊';
+    if(/요단|강|도하/.test(t)) return '🌊';
+    if(/길갈/.test(t)) return '🪨';
     if(/여리고|성/.test(t)) return '🏰';
+    if(/라합/.test(t)) return '🧕';
     if(/아이성|아간|실패/.test(t)) return '⚠️';
     if(/가나안|정복|땅/.test(t)) return '🏞️';
     if(/기업|분배|지파/.test(t)) return '🗺️';
@@ -159,6 +162,8 @@ function renderExplore(items){
     if(/여호수아/.test(t)) return '🛡️';
     if(/사사/.test(t)) return '⚖️';
     if(/왕국|다윗/.test(t)) return '👑';
+    if(/포로|바벨론/.test(t)) return '⛓️';
+    if(/귀환|회복/.test(t)) return '🚶';
     if(/예수|그리스도|십자가|메시아/.test(t)) return '✝️';
     if(/교회/.test(t)) return '⛪';
     if(/새창조|새 예루살렘/.test(t)) return '👑';
