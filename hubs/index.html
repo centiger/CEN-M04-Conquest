@@ -6,12 +6,43 @@
 <title>정복시대 허브</title>
 <link rel="stylesheet" href="style.css"/>
 
-<style id="cen-hash-scroll-margin-fix">
+<style id="cen-m04-anchor-force-css">
 #connections,
 #integration{
-  scroll-margin-top:120px;
+  scroll-margin-top:110px !important;
 }
 </style>
+<script id="cen-m04-anchor-force-scroll">
+(function(){
+  function targetId(){
+    const p = new URLSearchParams(location.search);
+    const s = p.get('scrollTo') || p.get('view');
+    if(s === 'meaning') return 'connections';
+    if(s === 'panorama') return 'integration';
+    if(location.hash === '#connections') return 'connections';
+    if(location.hash === '#integration') return 'integration';
+    return '';
+  }
+  function forceScroll(){
+    const id = targetId();
+    if(!id) return false;
+    const el = document.getElementById(id);
+    if(!el) return false;
+    el.scrollIntoView({block:'start'});
+    window.scrollBy(0, -110);
+    return true;
+  }
+  let count = 0;
+  function tick(){
+    count++;
+    forceScroll();
+    if(count < 18) setTimeout(tick, 150);
+  }
+  window.addEventListener('DOMContentLoaded', function(){ setTimeout(tick, 50); });
+  window.addEventListener('load', function(){ setTimeout(tick, 100); });
+  window.addEventListener('hashchange', tick);
+})();
+</script>
 
 </head>
 <body>
@@ -37,8 +68,8 @@
     <article class="card"><h2>대표성구</h2><div class="verse" id="verse"></div></article>
     <article class="card"><h2>핵심사건</h2><ul id="events"></ul></article>
     <article class="card"><h2>핵심의미</h2><ul id="meaning"></ul></article>
-    <article class="card" id="connections"><h2>Meaning</h2><div id="connectionsList" class="exploreGrid"></div></article>
-    <article class="card" id="integration"><h2>파노라마</h2><div id="integrated" class="exploreGrid"></div></article>
+    <article class="card cen-anchor-target" id="connections" data-anchor="meaning"><h2>Meaning</h2><div id="connectionsContent" class="exploreGrid"></div></article>
+    <article class="card cen-anchor-target" id="integration" data-anchor="panorama"><h2>파노라마</h2><div id="integratedContent" class="exploreGrid"></div></article>
     <article class="card"><h2>관련성경</h2><ul id="refs"></ul></article>
     <article class="card message"><h2>핵심메시지</h2><p id="message"></p></article>
   </section>
