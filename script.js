@@ -127,16 +127,20 @@
 
   document.querySelectorAll('.button-set button').forEach(btn => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       const group = btn.closest('.button-set');
-      const eventName = group.dataset.event;
       const kind = btn.dataset.kind;
-      const label = kind === 'link' ? `${eventName} 연결탐험` : `${eventName} 통합탐험`;
-      dialogTitle.textContent = label;
-      dialogText.textContent = eventName === '요단강 도하'
-        ? '요단강 도하 허브가 먼저 통합되었습니다. 연결탐험과 통합탐험 상세창은 허브 표준 확정 후 연결합니다.'
-        : '해당 탐험은 다음 단계에서 실제 내용으로 연결합니다.';
-      dialog.showModal();
+      const hub = group.dataset.hub || (group.querySelector('.hub-button')?.getAttribute('href') || '').match(/hub=([^&#]+)/)?.[1];
+      if(!hub) return;
+      if(kind === 'link'){
+        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}#connections`;
+        return;
+      }
+      if(kind === 'integrated'){
+        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}#integration`;
+        return;
+      }
     });
   });
 
