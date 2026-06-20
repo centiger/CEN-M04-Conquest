@@ -297,3 +297,15 @@ function openList(){
 function closeList(){document.getElementById('listModal').classList.remove('show');}
 window.openList=openList; window.closeList=closeList;
 render(current);
+
+function cenScrollHashAfterRender(){
+  if(!location.hash) return;
+  const id = location.hash.replace('#','');
+  const el = document.getElementById(id);
+  if(!el) return;
+  setTimeout(()=>{
+    el.scrollIntoView({block:'start'});
+    window.scrollBy(0,-90);
+  },120);
+}
+window.addEventListener('load',()=>setTimeout(cenScrollHashAfterRender,250));
