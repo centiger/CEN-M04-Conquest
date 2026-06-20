@@ -1,311 +1,274 @@
-const HUBS = [
-  {
-    id:'jordan', icon:'🌊', title:'요단강 도하 허브', subtitle:'약속의 땅으로 들어가는 믿음의 첫걸음',
-    theme:'하나님은 요단강을 멈추시고 언약 백성을 약속의 땅으로 인도하시며, 광야 시대를 끝내고 정복 시대를 시작하게 하신다.',
-    map:'assets/jordan-map.png',
-    mapText:'이스라엘 백성은 싯딤에서 출발하여 언약궤를 앞세우고 요단강을 건넌 뒤 길갈에 진을 쳤다. 길갈은 가나안 정복의 첫 전진기지가 되었고, 이후 여리고 함락으로 정복 여정이 이어졌다.',
-    verse:'“내가 오늘부터 시작하여 너를 온 이스라엘의 목전에서 크게 하여 내가 모세와 함께 있었던 것 같이 너와 함께 있는 것을 그들이 알게 하리라.”<br><strong>여호수아 3:7</strong>',
-    events:['여호수아가 모세의 뒤를 이어 지도자로 세워짐','언약궤를 멘 제사장들이 요단강에 먼저 들어섬','하나님께서 요단강 물을 멈추심','온 백성이 마른 땅으로 강을 건넘','열두 돌을 세워 하나님의 구원을 기억하게 함','길갈에 진을 치고 가나안 정복을 시작함'],
-    meaning:['광야 생활의 종료와 약속의 땅 진입','믿음은 물이 갈라진 뒤가 아니라 말씀을 따라 발을 내딛는 순종임','언약궤는 하나님의 임재와 인도를 상징함','열두 돌은 다음 세대에게 전할 기억의 신앙을 보여줌','여호수아의 지도력이 이스라엘 앞에서 확증됨'],
-connections:[
-'❓ 핵심질문 | 믿음은 언제 순종으로 드러나는가?',
-'💡 한 줄 핵심 | 믿음은 길이 열린 뒤가 아니라 말씀을 따라 발을 내딛을 때 드러난다.',
-'📖 사건의 의미 | 요단강 도하는 광야의 끝이자 약속의 땅으로 들어가는 믿음의 첫걸음이다.',
-'🔗 연결 흐름 | 광야 → 요단강 → 길갈 → 여리고 → 정복 시작',
-'🤔 생각해보기 | 나는 보이지 않는 길 앞에서도 하나님의 말씀을 따라 움직이는가?'
-],
-integrated:[
-'❓ 핵심질문 | 요단강 도하는 성경 전체에서 무엇을 보여주는가?',
-'💡 한 줄 핵심 | 하나님은 자기 백성을 약속의 자리로 인도하신다.',
-'📖 구속사 의미 | 요단강 도하는 출애굽의 구원이 약속의 땅 입성으로 이어지는 전환점이다.',
-'🌍 성경 전체 흐름 | 출애굽 → 광야 → 요단강 → 가나안 → 하나님 나라 → 새 창조',
-'🤔 생각해보기 | 나는 하나님의 약속을 실제 삶의 자리로 받아들이고 있는가?'
-],
-    refs:['여호수아 1장','여호수아 3장','여호수아 4장','출애굽기 14장','히브리서 11장'],
-    message:'요단강 도하는 단순한 강 건너기가 아니라, 하나님의 약속을 믿고 실제 땅으로 들어가는 순종의 사건이다. 하나님은 언약 백성을 광야에서 약속의 땅으로 옮기시며 새로운 구속사의 장을 여셨다.',
-    prev:null,next:'jericho'
-  },
-  {
-    id:'jericho', icon:'🏰', title:'여리고 함락 허브', subtitle:'순종으로 얻은 가나안 정복의 첫 승리',
-    theme:'하나님은 인간의 힘이 아니라 말씀에 대한 믿음의 순종을 통해 여리고 성을 무너뜨리시고, 가나안 정복의 첫 승리를 허락하신다.',
-    map:'assets/jericho-map.png',
-    mapText:'이스라엘 백성은 길갈에 진을 친 후 요단 계곡의 전략적 요충지인 여리고를 공격하였다. 하나님의 명령에 따라 6일 동안 성을 돌고, 7일째 일곱 바퀴를 돈 후 나팔을 불자 여리고 성벽이 무너졌으며 가나안 정복의 첫 승리가 이루어졌다.',
-    verse:'“너희는 외치라 여호와께서 너희에게 이 성을 주셨느니라.”<br><strong>여호수아 6:16</strong>',
-    events:['길갈에 진을 치고 유월절을 지킴','여호수아가 여호와의 군대 대장을 만남','하나님의 명령대로 6일 동안 성을 하루 한 바퀴씩 돎','일곱째 날 성을 일곱 바퀴 돎','제사장들이 나팔을 불고 백성이 크게 외침','여리고 성벽이 무너짐','라합과 그 가족이 구원받음','가나안 정복의 첫 승리가 이루어짐'],
-    meaning:['하나님의 승리는 인간의 전략보다 말씀에 대한 순종에서 시작됨','여리고는 가나안 정복의 첫 열매이자 하나님의 주권을 드러내는 사건임','라합의 구원은 이방인에게도 미치는 하나님의 은혜를 보여줌','붉은 줄은 구원과 보호의 표지를 상징함','첫 승리는 이후 정복 여정 전체의 방향을 제시함'],
-    connections:[
-'❓ 핵심질문 | 하나님은 어떻게 불가능한 성을 무너뜨리시는가?',
-'💡 한 줄 핵심 | 하나님의 승리는 인간의 힘보다 말씀에 대한 순종에서 시작된다.',
-'📖 사건의 의미 | 여리고 함락은 가나안 정복의 첫 승리이며 하나님이 싸우시는 전쟁임을 보여준다.',
-'🔗 연결 흐름 | 요단강 → 길갈 → 여리고 → 라합 구원 → 정복 확대',
-'🤔 생각해보기 | 나는 이해되지 않아도 하나님의 말씀에 순종하는가?'
-],
-integrated:[
-'❓ 핵심질문 | 여리고 사건은 구속사에서 무엇을 보여주는가?',
-'💡 한 줄 핵심 | 하나님은 심판 가운데서도 구원의 길을 여신다.',
-'📖 구속사 의미 | 라합의 구원은 이방인도 믿음으로 하나님의 백성 안에 들어올 수 있음을 보여준다.',
-'🌍 성경 전체 흐름 | 여리고 심판 → 라합 구원 → 다윗 계보 → 예수 그리스도 → 열방 구원',
-'🤔 생각해보기 | 나는 하나님의 구원이 예상 밖의 사람에게도 열려 있음을 인정하는가?'
-],
-    refs:['여호수아 2장','여호수아 5장','여호수아 6장','히브리서 11장','야고보서 2장','마태복음 1장'],
-    message:'여리고 함락은 힘으로 얻은 승리가 아니라 하나님의 말씀을 믿고 순종한 결과였다. 하나님은 순종하는 백성에게 불가능해 보이는 성도 무너뜨리시며, 동시에 라합을 통해 심판 중에도 구원의 길을 여신다.',
-    prev:'jordan',next:'conquest'
-  },
-  {
-    id:'conquest', icon:'⚔️', title:'가나안 정복 허브', subtitle:'약속의 땅을 차지하며 하나님 나라의 질서를 세우다',
-    theme:'하나님은 이스라엘 백성을 통해 가나안 주요 지역을 정복하게 하시고, 아브라함에게 약속하신 땅을 언약 백성에게 주시는 역사를 이루신다.',
-    map:'assets/conquest-map.png',
-    mapText:'이스라엘은 여리고와 아이성을 점령한 후 기브온 사람들과 조약을 맺었다. 이후 여호수아는 남부 연합군을 격파하고 계속해서 북부 연합군까지 무너뜨림으로써 가나안 주요 지역을 장악하였다. 정복은 단순한 전쟁이 아니라 하나님께서 아브라함에게 약속하신 땅을 언약 백성에게 주시는 과정이었다.',
-    verse:'“너희 하나님 여호와께서 너희를 위하여 싸우셨느니라.”<br><strong>여호수아 23:3</strong>',
-    events:['여리고 점령 후 가나안 내륙 진입이 시작됨','아간의 범죄로 아이성에서 패배함','회개와 정결 후 아이성을 다시 공격하여 점령함','기브온 사람들이 속임수로 조약을 맺음','기브온을 둘러싼 남부 연합군과 전투가 벌어짐','여호수아가 남부 지역의 주요 성읍들을 장악함','하솔을 중심으로 한 북부 연합군을 격파함','가나안 주요 지역 정복 후 기업 분배의 단계로 나아감'],
-    meaning:['가나안 정복은 아브라함에게 약속하신 땅의 성취 과정임','승리의 주체는 이스라엘의 군사력이 아니라 하나님이심','아이성 사건은 거룩과 순종 없이는 승리가 없음을 보여줌','기브온 사건은 말씀을 묻지 않는 판단의 위험을 드러냄','남부와 북부 정복은 하나님 나라 질서가 약속의 땅에 세워지는 과정임','정복은 다음 단계인 기업 분배를 준비하게 함'],
-    connections:[
-'❓ 핵심질문 | 약속의 땅은 어떻게 차지하게 되는가?',
-'💡 한 줄 핵심 | 승리는 하나님의 싸우심과 백성의 순종이 만날 때 이루어진다.',
-'📖 사건의 의미 | 가나안 정복은 아브라함에게 약속하신 땅이 역사 속에서 성취되는 과정이다.',
-'🔗 연결 흐름 | 여리고 → 아이성 → 기브온 → 남부 정복 → 북부 정복 → 기업 분배',
-'🤔 생각해보기 | 나는 승리보다 먼저 거룩과 순종을 점검하는가?'
-],
-integrated:[
-'❓ 핵심질문 | 가나안 정복은 성경 전체에서 어떤 위치인가?',
-'💡 한 줄 핵심 | 하나님은 약속하신 땅을 자기 백성에게 주신다.',
-'📖 구속사 의미 | 정복은 단순한 전쟁이 아니라 언약의 땅에 하나님 나라 질서를 세우는 과정이다.',
-'🌍 성경 전체 흐름 | 아브라함 언약 → 출애굽 → 광야 → 가나안 정복 → 왕국 → 예수 그리스도',
-'🤔 생각해보기 | 나는 하나님 나라의 질서를 내 삶에 세워가고 있는가?'
-],
-    refs:['여호수아 7장','여호수아 8장','여호수아 9장','여호수아 10장','여호수아 11장','여호수아 12장','여호수아 23장'],
-    message:'가나안 정복은 땅을 빼앗는 단순한 전쟁 이야기가 아니라, 하나님께서 약속하신 땅을 실제 역사 속에서 언약 백성에게 주시는 과정이다. 이 정복은 순종과 거룩, 하나님의 싸우심, 그리고 기업 분배로 이어지는 하나님 나라의 기초를 보여준다.',
-    prev:'jericho', next:'inheritance'
-  },
-  {
-    id:'inheritance', icon:'🗺️', title:'기업 분배 허브', subtitle:'열두 지파에게 약속의 땅이 분배되다',
-    theme:'하나님은 아브라함에게 약속하신 땅을 이스라엘 열두 지파에게 기업으로 나누어 주심으로 언약을 실제 역사 속에서 성취하신다.',
-    map:'assets/inheritance-map.png',
-    mapText:'가나안 정복이 마무리된 후 여호수아는 실로에서 제비를 뽑아 각 지파에게 기업을 분배하였다. 르우벤·갓·므낫세 반 지파는 요단 동편을 기업으로 받았고, 나머지 지파들은 가나안 땅에 각각의 기업을 배정받았다. 이는 하나님께서 아브라함에게 약속하신 땅이 실제 역사 속에서 언약 백성에게 주어진 사건이었다.',
-    verse:'“너희 조상들의 하나님 여호와께서 너희에게 말씀하신 땅을 어찌하여 얻으러 가지 아니하느냐.”<br><strong>여호수아 18:3</strong>',
-    events:['가나안 주요 지역 정복이 마무리됨','실로에 회막이 세워지고 온 회중이 모임','여호수아가 아직 기업을 받지 못한 지파들에게 땅을 조사하게 함','제비뽑기를 통해 각 지파의 기업이 정해짐','르우벤·갓·므낫세 반 지파는 요단 동편 기업을 확정받음','유다·에브라임·므낫세 등 서편 지파들이 가나안 땅의 기업을 받음','레위 지파는 땅 대신 여호와를 기업으로 받고 성읍들을 배정받음','도피성이 지정되어 정의와 자비의 질서가 세워짐'],
-    meaning:['기업 분배는 아브라함에게 주신 땅 약속의 역사적 성취임','제비뽑기는 땅 분배가 인간의 계산이 아니라 하나님의 주권 아래 있음을 보여줌','열두 지파의 정착은 이스라엘 공동체 질서의 기초가 됨','실로의 성막은 기업 분배가 예배와 언약 중심으로 이루어졌음을 보여줌','레위 지파는 하나님 자신이 참 기업이심을 드러냄','도피성은 약속의 땅 안에 정의와 자비의 질서가 필요함을 보여줌'],
-    connections:[
-'❓ 핵심질문 | 하나님은 왜 땅을 지파별로 나누어 주셨는가?',
-'💡 한 줄 핵심 | 하나님은 약속을 실제 삶의 자리로 나누어 주신다.',
-'📖 사건의 의미 | 기업 분배는 아브라함에게 약속하신 땅이 각 지파의 삶 속에 구체적으로 성취된 사건이다.',
-'🔗 연결 흐름 | 정복 → 실로 → 제비뽑기 → 지파별 기업 → 도피성 → 세겜 언약',
-'🤔 생각해보기 | 나는 하나님이 맡기신 삶의 자리를 책임 있게 살아가는가?'
-],
-integrated:[
-'❓ 핵심질문 | 기업은 성경 전체에서 무엇을 뜻하는가?',
-'💡 한 줄 핵심 | 하나님의 백성은 하나님이 주신 유업 안에서 살아간다.',
-'📖 구속사 의미 | 기업 분배는 땅의 유업을 넘어 하나님 자신이 참 기업이심을 보여준다.',
-'🌍 성경 전체 흐름 | 약속의 땅 → 지파별 기업 → 성전 중심 공동체 → 그리스도 안의 유업',
-'🤔 생각해보기 | 나는 하나님이 주신 기업을 감사와 순종으로 받아들이는가?'
-],
-    refs:['여호수아 13장','여호수아 14장','여호수아 15장','여호수아 16장','여호수아 17장','여호수아 18장','여호수아 19장','여호수아 20장','여호수아 21장','민수기 18장'],
-    message:'기업 분배는 단순한 토지 배분이 아니라 하나님께서 아브라함에게 약속하신 언약을 역사 속에서 성취하신 사건이다. 하나님은 언약 백성에게 유업을 주셨고, 그 땅 위에 예배와 공동체와 정의의 질서를 세우셨다.',
-    prev:'conquest', next:'shechem'
-  },
-  {
-    id:'shechem', icon:'📜', title:'세겜 언약 허브', subtitle:'너희가 섬길 자를 오늘 택하라',
-    theme:'여호수아는 기업 분배 이후 이스라엘 모든 지파를 세겜에 모아 하나님의 은혜를 회고하게 하고, 여호와만 섬길 것을 선택하게 함으로 언약 백성의 정체성을 다시 확인하게 한다.',
-    map:'assets/shechem-map.png',
-    mapText:'기업 분배 이후 여호수아는 이스라엘 모든 지파를 세겜에 모았다. 세겜은 아브라함의 약속, 야곱의 제단, 에발산과 그리심산의 언약 선포와 연결되는 중요한 장소였다. 여호수아는 하나님께서 출애굽과 정복을 통해 베푸신 은혜를 회고하게 하고, 백성에게 여호와만 섬길 것을 선택하게 하였다. 세겜 언약은 정복시대를 마무리하며 언약 백성의 정체성을 다시 확인한 사건이었다.',
-    verse:'“오직 나와 내 집은 여호와를 섬기겠노라.”<br><strong>여호수아 24:15</strong>',
-    events:['기업 분배 이후 이스라엘 모든 지파가 세겜에 모임','여호수아가 아브라함부터 출애굽과 정복까지 하나님의 은혜를 회고시킴','백성에게 이방 신들을 버리고 여호와만 섬길 것을 요구함','백성이 여호와를 섬기겠다고 고백함','여호수아가 백성과 언약을 세우고 율례와 법도를 제시함','큰 돌을 세워 언약의 증거로 삼음','정복시대가 언약 갱신으로 마무리됨'],
-    meaning:['정복의 완성은 땅을 얻는 것이 아니라 하나님을 섬기는 헌신으로 완성됨','세겜은 아브라함의 약속, 야곱의 제단, 에발산과 그리심산의 언약 선포가 만나는 장소임','여호수아의 회고는 은혜를 기억해야 바른 선택을 할 수 있음을 보여줌','백성의 고백은 언약 백성의 정체성을 다시 확인하는 선언임','큰 돌은 백성의 고백을 기억하게 하는 언약의 증거임','세겜 언약은 사사시대로 넘어가기 전 마지막 신앙적 기준점이 됨'],
-    connections:[
-'❓ 핵심질문 | 정복의 마지막에 왜 다시 언약을 선택해야 했는가?',
-'💡 한 줄 핵심 | 정복의 완성은 땅의 소유가 아니라 하나님을 섬기는 헌신이다.',
-'📖 사건의 의미 | 세겜 언약은 정복시대를 마무리하며 언약 백성의 정체성을 다시 확인한 사건이다.',
-'🔗 연결 흐름 | 기업 분배 → 세겜 회고 → 여호와 섬김의 선택 → 여호수아 죽음 → 사사시대',
-'🤔 생각해보기 | 나는 오늘 누구를 섬길 것인지 분명히 선택하고 있는가?'
-],
-integrated:[
-'❓ 핵심질문 | 세겜 언약은 성경 전체에서 어떤 의미인가?',
-'💡 한 줄 핵심 | 하나님의 은혜를 기억한 백성은 하나님께 헌신으로 응답해야 한다.',
-'📖 구속사 의미 | 세겜 언약은 은혜로 땅을 받은 백성이 말씀 앞에서 다시 결단해야 함을 보여준다.',
-'🌍 성경 전체 흐름 | 출애굽 은혜 → 정복 은혜 → 세겜 언약 → 사사시대 위기 → 왕국 → 새 언약',
-'🤔 생각해보기 | 나는 받은 은혜를 기억하며 하나님께 응답하고 있는가?'
-],
-    refs:['여호수아 24장','창세기 12장','창세기 33장','신명기 27장','여호수아 8장','여호수아 23장','사사기 2장'],
-    message:'세겜 언약은 정복시대의 결론이다. 하나님께서 약속의 땅을 주셨다면, 이제 백성은 누구를 섬길 것인지 선택해야 한다. 여호수아는 은혜를 기억하게 한 뒤 결단을 요구했고, 백성은 여호와만 섬기겠다고 고백하였다. 정복의 완성은 소유가 아니라 헌신이다.',
-    prev:'inheritance', next:null, nextEra:{label:'사사시대 Matrix', url:'https://centiger.github.io/CEN-M05-Judges/', desc:'세겜의 언약 고백 이후, 여호수아 사망과 사사시대의 신앙 위기로 흐름이 이어집니다.'}
-  }
-];
-const byId = Object.fromEntries(HUBS.map(h=>[h.id,h]));
-const params = new URLSearchParams(location.search);
-let current = params.get('hub') || 'jordan';
-if(!byId[current]) current='jordan';
+let HUBS=[];
+let current=null;
+const $=id=>document.getElementById(id);
+const params=new URLSearchParams(location.search);
 
-function fillList(id, items){
-  const el=document.getElementById(id);
-  if(!el) return;
-  if(id==='connections' || id==='integrated' || id==='connectionsContent' || id==='integratedContent'){
-    el.innerHTML=(items||[]).map(t=>{
-      let s=String(t||'');
-      let title='', body=s;
-      if(s.includes('|')){
-        const a=s.split('|');
-        title=a.shift().trim();
-        body=a.join('|').trim();
-      }
-      if(title.includes('연결 흐름') || title.includes('성경 전체 흐름')){
-        body=body.split('→').map(v=>v.trim()).filter(Boolean).join('<br>↓<br>');
-      }
-      body=body.replaceAll('|','<br>');
-      return `<div class="exploreCard"><b>${title}</b><p>${body}</p></div>`;
-    }).join('');
-    return;
-  }
-  el.innerHTML='';
-  (items||['다음 단계에서 세부 내용을 연결합니다.']).forEach(t=>{
-    const li=document.createElement('li');
-    li.textContent=t;
-    el.appendChild(li);
-  });
+async function loadData(){
+  const res=await fetch('data/hubs.json?v=m07-v36-actual-fixed',{cache:'no-store'});
+  const data=await res.json();
+  HUBS=data.hubs||[];
+  const slug=params.get('hub')||data.defaultHub||(HUBS[0]&&HUBS[0].slug);
+  renderHub(slug);
+  renderHubList();
 }
 
-function renderExplore(items){
+function setOptional(sectionId, contentId, value, renderer){
+  const section=$(sectionId);
+  const box=$(contentId);
+  if(!section||!box)return;
+  if(!value || (Array.isArray(value)&&!value.length)){
+    section.style.display='none';
+    box.innerHTML='';
+    return;
+  }
+  section.style.display='block';
+  box.innerHTML=renderer?renderer(value):formatText(value);
+}
+
+function formatText(v){
+  if(Array.isArray(v)) return `<ul class="cleanList">${v.map(x=>`<li>${formatInline(x)}</li>`).join('')}</ul>`;
+  return escapeHtml(formatInline(v)).replace(/\n/g,'<br>');
+}
+
+function formatInline(v){
+  if(v===null||v===undefined) return '';
+  if(typeof v==='object'){
+    const main=v.title||v.label||v.name||v.text||v.content||'';
+    const sub=v.desc||v.description||v.detail||'';
+    const icon=v.icon?`${v.icon} `:'';
+    if(main||sub) return icon + main + (sub?` - ${sub}`:'');
+    return Object.values(v).filter(x=>typeof x!=='object').join(' - ');
+  }
+  return String(v);
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"]/g, ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+}
+
+function renderHub(slug){
+  current=HUBS.find(h=>h.slug===slug)||HUBS[0];
+  if(!current)return;
+  $('appTitle').textContent=current.title;
+  $('appSub').textContent=current.subtitle||'분열왕국 핵심사건 확장탐험';
+  $('hero').innerHTML=`
+${current.kicker?`<div class="kicker">${escapeHtml(current.kicker)}</div>`:''}
+${current.question?`
+<div class="questionCard">
+  <div class="qMark">❓ 핵심 질문</div>
+  <div class="qText">${escapeHtml(current.question)}</div>
+  <div class="oneLine">💡 ${escapeHtml(current.oneLine||'')}</div>
+</div>`:''}
+<h1>${escapeHtml(current.heroTitle||current.title)}</h1>
+<p>${formatText(current.heroText||'')}</p>
+<div class="tags">${(current.tags||[]).map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div>`;
+
+  $('flowTitle').textContent=current.mainFlowTitle||'핵심 흐름';
+  $('mainFlow').innerHTML=nodes(current.mainFlow||[]);
+
+  $('mapTitle').textContent=current.mapTitle||'지도';
+  $('mapImg').src=current.map||'';
+  $('mapCaption').textContent=current.mapCaption||'';
+
+  setOptional('verseSection','verse',current.verse);
+
+  $('keyItems').innerHTML=(current.keyItems||[]).map(i=>`<div class="infoBox"><div class="ico">${i.icon||'•'}</div><b>${escapeHtml(i.title||'')}</b><p>${formatText(i.text||'')}</p></div>`).join('');
+  $('overviewFlow').innerHTML=nodes(current.overviewFlow||[]);
+
+  setOptional('eventsSection','events',current.events, renderListOrFlow);
+  if(current.meaning && typeof current.meaning==='object' && !Array.isArray(current.meaning) && (current.meaning.summary || current.meaning.flow || current.meaning.thought)){
+    setOptional('meaningSection','meaning',null);
+  }else{
+    setOptional('meaningSection','meaning',current.meaning, renderExplore);
+  }
+  setOptional('integrationSection','integration',current.integration ? buildIntegrationExplore(current) : null, renderExplore);
+  setOptional('bibleSection','bible',current.bible);
+  setOptional('messageSection','message',current.message, v=>`<div class="messageStrong">${formatText(v)}</div>`);
+
+  if($('timeline')) $('timeline').innerHTML=(current.timeline||[]).map(t=>`<div class="t ${t.active?'active':''}">${escapeHtml(t.year||'')}<div class="dot"></div>${escapeHtml(t.label||'')}</div>`).join('');
+  if(current.meaning && typeof current.meaning==='object' && !Array.isArray(current.meaning) && (current.meaning.summary || current.meaning.flow || current.meaning.thought)){
+    $('links').innerHTML=renderExplore(buildConnectionExplore(current));
+  }else{
+    $('links').innerHTML=(current.links||[]).map((l,i)=>`<button class="${i===1?'primary':''}" data-url="${l.url||''}" data-hub="${l.hub||''}">${escapeHtml(l.label||'')}</button>`).join('');
+  }
+  $('prevBtn').textContent=current.prevLabel||'이전 허브';
+  $('nextBtn').textContent=current.nextLabel||'다음 허브';
+}
+
+function renderExplore(value){
   function escapeLocal(s){
-    if(typeof escapeHtml==='function') return escapeHtml(String(s||''));
-    if(typeof esc==='function') return esc(String(s||''));
-    return String(s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    return String(s ?? '').replace(/[&<>"']/g, m => ({
+      '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+    }[m]));
   }
   function hasEmoji(s){
     return /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(String(s||''));
   }
-  function iconForStep(s){
-    const t=String(s||'');
-    if(/요단|강|도하/.test(t)) return '🌊';
-    if(/길갈/.test(t)) return '🪨';
-    if(/여리고|성/.test(t)) return '🏰';
-    if(/라합/.test(t)) return '🧕';
-    if(/아이성|아간|실패/.test(t)) return '⚠️';
-    if(/가나안|정복|땅/.test(t)) return '🏞️';
-    if(/기업|분배|지파/.test(t)) return '🗺️';
-    if(/세겜|언약/.test(t)) return '📜';
-    if(/모세|율법/.test(t)) return '📖';
-    if(/여호수아/.test(t)) return '🛡️';
-    if(/사사/.test(t)) return '⚖️';
-    if(/왕국|다윗/.test(t)) return '👑';
-    if(/포로|바벨론/.test(t)) return '⛓️';
+  function iconForStep(step){
+    const t=String(step||'');
+    if(/왕국분열|분열|르호보암|여로보암/.test(t)) return '⚡';
+    if(/갈멜|엘리야|불/.test(t)) return '🔥';
+    if(/바알|우상/.test(t)) return '🛕';
+    if(/북이스라엘|사마리아|멸망/.test(t)) return '🏚️';
+    if(/앗수르|산헤립|침공/.test(t)) return '⚔️';
+    if(/히스기야|기도/.test(t)) return '🙏';
+    if(/이사야|선지자|아모스|호세아|예레미야/.test(t)) return '📣';
+    if(/요시야|개혁/.test(t)) return '👑';
+    if(/율법|말씀/.test(t)) return '📖';
+    if(/예루살렘|성전/.test(t)) return '🏛️';
+    if(/바벨론|포로/.test(t)) return '⛓️';
     if(/귀환|회복/.test(t)) return '🚶';
+    if(/다윗|다윗 계보|다윗언약/.test(t)) return '👑';
     if(/예수|그리스도|십자가|메시아/.test(t)) return '✝️';
+    if(/열방|이방/.test(t)) return '🌍';
     if(/교회/.test(t)) return '⛪';
     if(/새창조|새 예루살렘/.test(t)) return '👑';
     return '🔹';
   }
-  function verticalFlowHtml(text){
-    const raw=String(text||'').replace(/\s*\|\s*/g,' ').trim();
-    const parts=raw.split(/\s*→\s*/).map(v=>v.trim()).filter(Boolean);
-    if(parts.length<2) return escapeLocal(raw).replace(/\n/g,'<br>');
-    return parts.map((step,i)=>{
-      const labeled=hasEmoji(step) ? step : `${iconForStep(step)} ${step}`;
-      const line=`<span class="flowLine">${escapeLocal(labeled)}</span>`;
-      if(i===parts.length-1) return line;
-      return line + `<span class="flowArrow">↓</span>`;
-    }).join('');
-  }
-  function normalHtml(text){
-    return escapeLocal(String(text||'').replace(/\s*\|\s*/g,'\n')).replace(/\n/g,'<br>');
-  }
-  return (items||[]).map(x=>{
-    let title='', text='';
+
+  const labels=[
+    '❓ 핵심질문',
+    '💡 한 줄 핵심',
+    '📖 사건의 의미',
+    '📖 구속사 의미',
+    '🔗 연결 흐름',
+    '🌍 성경 전체 흐름',
+    '🤔 생각해보기'
+  ];
+
+  function splitItem(x){
+    let raw='';
     if(typeof x==='string'){
-      const s=String(x||'');
-      if(s.includes('|')){
-        const a=s.split('|');
-        title=a.shift().trim();
-        text=a.join('|').trim();
-      }else{
-        text=s.trim();
+      raw=String(x||'').trim();
+    }else{
+      const title=String(x?.title||x?.label||'').trim();
+      const text=String(x?.text||x?.content||x?.body||'').trim();
+      raw=(title+(text?' '+text:'')).trim();
+    }
+
+    raw=raw.replace(/\s*\|\s*/g,' ');
+
+    for(const label of labels){
+      if(raw.startsWith(label)){
+        return {title:label, text:raw.slice(label.length).trim()};
       }
-    }else{
-      title=String(x.title||x.label||'').trim();
-      text=String(x.text||x.content||x.body||'').trim();
     }
-    if(title.includes('|')){
-      const a=title.split('|');
-      title=a.shift().trim();
-      text=a.join('|').trim() + (text ? '\n' + text : '');
-    }
-    const isFlow=/연결\s*흐름|성경\s*전체\s*흐름/.test(title) || text.includes('→');
-    const body=isFlow ? verticalFlowHtml(text) : normalHtml(text);
-    return `<div class="exploreCard">${title?`<b>${escapeLocal(title)}</b>`:''}<p>${body}</p></div>`;
-  }).join('');
-}
-
-function render(id){
-  const h=byId[id]||byId.jordan; current=h.id;
-  document.title = h.title + ' | 정복시대';
-  document.getElementById('hubIcon').textContent=h.icon||'▣';
-  document.getElementById('title').textContent=h.title;
-  document.getElementById('subtitle').textContent=h.subtitle||'';
-  document.getElementById('theme').textContent=h.theme||'';
-  const map=document.getElementById('map');
-  map.src=h.map||'assets/jordan-map.png';
-  document.getElementById('mapText').textContent=h.mapText||'지도와 설명은 다음 단계에서 보완합니다.';
-  document.getElementById('verse').innerHTML=h.verse||'대표성구는 다음 단계에서 입력합니다.';
-  fillList('events',h.events); fillList('meaning',h.meaning); fillList('connectionsContent',h.connections); fillList('integratedContent',h.integrated); fillList('refs',h.refs);
-  document.getElementById('message').textContent=h.message||'이 허브는 다음 단계에서 제작합니다.';
-  const prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), matrix=document.getElementById('matrixBtn');
-  prev.textContent=h.prev?'이전':'Matrix'; prev.onclick=()=> h.prev ? go(h.prev) : location.href='../index.html';
-
-  // 기본 Matrix 버튼은 정복시대 메인으로 이동한다.
-  if(matrix){
-    matrix.textContent='Matrix';
-    matrix.onclick=()=>{ location.href='../index.html'; };
+    return {title:'', text:raw};
   }
 
-  next.classList.remove('next-era');
-  if(h.next){
-    const target=byId[h.next];
-    next.textContent=target ? target.title : '다음';
-    next.onclick=()=>go(h.next);
-  }else if(h.nextEra){
-    next.textContent=h.nextEra.label||'다음 시대';
-    next.classList.add('next-era');
-    next.onclick=()=>{ if(h.nextEra.url && h.nextEra.url !== '#') location.href=h.nextEra.url; };
-    // 마지막 세겜 언약 허브에서도 가운데 버튼은 정복시대 메인 Matrix로 유지한다.
-    if(matrix){
-      matrix.textContent='Matrix';
-      matrix.onclick=()=>{ location.href='../index.html'; };
-    }
-  }else{
-    next.textContent='Matrix';
-    next.onclick=()=>{ location.href='../index.html'; };
+  function flowToText(flow){
+    if(!Array.isArray(flow)) return String(flow||'');
+    return flow.map(f=>{
+      if(typeof f==='string') return f;
+      const icon=f.icon?f.icon+' ':'';
+      return icon + (f.title || f.text || f.label || '');
+    }).join(' → ');
   }
-  const eraCard=document.getElementById('nextEraCard');
-  if(eraCard){
-    if(h.nextEra){
-      eraCard.style.display='flex';
-      document.getElementById('nextEraTitle').textContent='정복시대 완료 → 다음 시대';
-      document.getElementById('nextEraDesc').textContent=h.nextEra.desc||'';
-      const eraBtn=document.getElementById('nextEraBtn');
-      eraBtn.textContent=h.nextEra.label||'다음 시대';
-      eraBtn.onclick=()=>{ if(h.nextEra.url && h.nextEra.url !== '#') location.href=h.nextEra.url; };
-    }else{
-      eraCard.style.display='none';
-    }
-  }
-  history.replaceState(null,'',`?hub=${h.id}${location.hash || ''}`);
-}
-function go(id){ render(id); window.scrollTo({top:0,behavior:'smooth'}); closeList(); }
-function openList(){
-  const box=document.getElementById('hubList'); box.innerHTML='';
-  HUBS.forEach(h=>{const b=document.createElement('button');b.className='hubItem';b.innerHTML=`<span class="hubItemIcon">${h.icon}</span><span class="hubItemText">${h.title}<small>${h.subtitle||''}</small></span>`;b.onclick=()=>go(h.id);box.appendChild(b);});
-  document.getElementById('listModal').classList.add('show');
-}
-function closeList(){document.getElementById('listModal').classList.remove('show');}
-window.openList=openList; window.closeList=closeList;
-render(current);
 
-function cenScrollToExploreFinal(){
-  if(!location.hash) return;
-  const id = location.hash.replace('#','');
-  const el = document.getElementById(id);
-  if(!el) return;
-  setTimeout(()=>{
-    el.scrollIntoView({block:'start'});
-    window.scrollBy(0,-110);
-  },180);
+  function verticalFlowHtml(text){
+    const raw=String(text||'').trim();
+    const parts=raw.split(/\s*(?:→|↓)\s*/).map(v=>v.trim()).filter(Boolean);
+    if(parts.length<2) return escapeLocal(raw).replace(/\n/g,'<br>');
+    return parts.map(step=>{
+      const labeled=hasEmoji(step)?step:`${iconForStep(step)} ${step}`;
+      return escapeLocal(labeled);
+    }).join('<br>↓<br>');
+  }
+
+  function renderItem(x){
+    const item=splitItem(x);
+    const isFlow=/연결\s*흐름|성경\s*전체\s*흐름/.test(item.title)||item.text.includes('→')||item.text.includes('↓');
+    const body=isFlow?verticalFlowHtml(item.text):escapeLocal(item.text).replace(/\n/g,'<br>');
+    return `<div class="exploreCard">${item.title?`<b>${escapeLocal(item.title)}</b>`:''}<p>${body}</p></div>`;
+  }
+
+  if(Array.isArray(value)){
+    return `<div class="exploreGrid">${value.map(renderItem).join('')}</div>`;
+  }
+
+  if(value && typeof value==='object' && (value.summary || value.flow || value.thought)){
+    const titleForFlow=value.flowTitle||'연결 흐름';
+    const items=[];
+    if(value.summary) items.push({title:'📖 사건의 의미', text:value.summary});
+    if(value.flow) items.push({title:`🔗 ${titleForFlow}`, text:flowToText(value.flow)});
+    if(value.thought) items.push({title:'🤔 생각해보기', text:value.thought});
+    return `<div class="exploreGrid">${items.map(renderItem).join('')}</div>`;
+  }
+
+  return `<div class="exploreGrid">${renderItem(value||'')}</div>`;
 }
-window.addEventListener('load',()=>setTimeout(cenScrollToExploreFinal,350));
+
+function buildConnectionExplore(h){
+  const m=h.meaning||{};
+  const flowText=Array.isArray(m.flow)?m.flow.map(f=>{
+    if(typeof f==='string') return f;
+    return (f.icon?f.icon+' ':'')+(f.title||f.text||f.label||'');
+  }).join(' → '):(m.flow||'');
+  return [
+    {title:'❓ 핵심질문', text:h.question||''},
+    {title:'💡 한 줄 핵심', text:h.oneLine||''},
+    {title:'📖 사건의 의미', text:m.summary||''},
+    {title:'🔗 연결 흐름', text:flowText},
+    {title:'🤔 생각해보기', text:m.thought||''}
+  ].filter(x=>x.text);
+}
+
+function buildIntegrationExplore(h){
+  const g=h.integration||{};
+  const flowText=Array.isArray(g.flow)?g.flow.map(f=>{
+    if(typeof f==='string') return f;
+    return (f.icon?f.icon+' ':'')+(f.title||f.text||f.label||'');
+  }).join(' → '):(g.flow||'');
+  const shortSummary=String(g.summary||'').split(/[.!?。]/)[0];
+  return [
+    {title:'❓ 핵심질문', text:`${(h.title||'이 사건').replace(/ 허브$/,'')}은 성경 전체 흐름에서 무엇을 보여주는가?`},
+    {title:'💡 한 줄 핵심', text:shortSummary||h.oneLine||''},
+    {title:'📖 구속사 의미', text:g.summary||''},
+    {title:'🌍 성경 전체 흐름', text:flowText},
+    {title:'🤔 생각해보기', text:g.thought||''}
+  ].filter(x=>x.text);
+}
+
+function renderListOrFlow(value){
+  if(Array.isArray(value)) return formatText(value);
+  const parts=formatInline(value).split('→').map(s=>s.trim()).filter(Boolean);
+  if(parts.length>1){
+    return `<div class="arrowFlow">${parts.map(p=>`<span>${escapeHtml(p)}</span>`).join('<b>→</b>')}</div>`;
+  }
+  return formatText(value);
+}
+
+function nodes(items){
+  return items.map(i=>`<div class="node"><div class="ico">${i.icon||'•'}</div><b>${escapeHtml(i.title||'')}</b><small>${escapeHtml(i.text||'')}</small></div>`).join('');
+}
+
+function goHub(slug){
+  if(!slug){alert('다음 단계에서 연결됩니다.');return}
+  history.pushState(null,'',`?hub=${slug}`);
+  renderHub(slug);
+  window.scrollTo(0,0);
+}
+function openUrl(url){
+  if(!url)return;
+  if(url.startsWith('#'))alert('다음 단계에서 연결됩니다.');
+  else window.open(url,'_self');
+}
+function renderHubList(){
+  $('hubList').innerHTML=HUBS.map(h=>`<button class="hubItem" data-hub="${h.slug}"><b>${escapeHtml(h.title||'')}</b><span>${escapeHtml(h.year||'')} · ${escapeHtml(h.short||'')}</span></button>`).join('');
+}
+
+document.addEventListener('click',e=>{
+  const url=e.target.closest('[data-url]');
+  if(url&&url.dataset.url){e.preventDefault();$('drawer').classList.remove('show');openUrl(url.dataset.url);return}
+  const hub=e.target.closest('[data-hub]');
+  if(hub&&hub.dataset.hub){e.preventDefault();$('drawer').classList.remove('show');goHub(hub.dataset.hub);return}
+});
+$('prevBtn').onclick=()=>current&&current.prev?goHub(current.prev):null;
+$('nextBtn').onclick=()=>{if(!current)return;if(current.nextUrl)return openUrl(current.nextUrl);if(current.next)return goHub(current.next)};
+$('matrixBtn').onclick=()=>openUrl('../index.html');
+$('backBtn').onclick=()=>openUrl('../index.html');
+$('hubListBtn').onclick=()=>$('drawer').classList.add('show');
+$('drawerClose').onclick=()=>$('drawer').classList.remove('show');
+$('drawer').onclick=e=>{if(e.target.id==='drawer')$('drawer').classList.remove('show')};
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?verse-fix-20260610').catch(()=>{});
+loadData();
