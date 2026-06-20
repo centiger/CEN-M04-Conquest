@@ -306,6 +306,6 @@ function cenScrollToExploreFinal(){
   setTimeout(()=>{
     el.scrollIntoView({block:'start'});
     window.scrollBy(0,-110);
-  },150);
+  },180);
 }
-window.addEventListener('load',()=>setTimeout(cenScrollToExploreFinal,300));
+window.addEventListener('load',()=>setTimeout(cenScrollToExploreFinal,350));
