@@ -1,3 +1,30 @@
+
+/* CEN M04 direct Meaning/Panorama link patch */
+(function(){
+  const hubMap = {
+    '요단강 도하':'jordan',
+    '여리고 함락':'jericho',
+    '가나안 정복':'conquest',
+    '기업 분배':'inheritance',
+    '세겜 언약':'shechem'
+  };
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest && e.target.closest('.button-set button');
+    if(!btn) return;
+    const kind = btn.dataset.kind || '';
+    if(kind !== 'link' && kind !== 'integrated') return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    const group = btn.closest('.button-set');
+    const hub = group.dataset.hub || hubMap[group.dataset.event];
+    if(!hub) return;
+    const view = kind === 'link' ? 'meaning' : 'panorama';
+    const hash = kind === 'link' ? 'connections' : 'integration';
+    location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}&scrollTo=${view}#${hash}`;
+  }, true);
+})();
+
 (() => {
   const viewport = document.getElementById('viewport');
   const canvas = document.getElementById('canvas');
@@ -127,20 +154,16 @@
 
   document.querySelectorAll('.button-set button').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault();
       e.stopPropagation();
       const group = btn.closest('.button-set');
+      const eventName = group.dataset.event;
       const kind = btn.dataset.kind;
-      const hub = group.dataset.hub || (group.querySelector('.hub-button')?.getAttribute('href') || '').match(/hub=([^&#]+)/)?.[1];
-      if(!hub) return;
-      if(kind === 'link'){
-        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}&view=meaning#connections`;
-        return;
-      }
-      if(kind === 'integrated'){
-        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}&view=panorama#integration`;
-        return;
-      }
+      const label = kind === 'link' ? `${eventName} 연결탐험` : `${eventName} 통합탐험`;
+      dialogTitle.textContent = label;
+      dialogText.textContent = eventName === '요단강 도하'
+        ? '요단강 도하 허브가 먼저 통합되었습니다. 연결탐험과 통합탐험 상세창은 허브 표준 확정 후 연결합니다.'
+        : '해당 탐험은 다음 단계에서 실제 내용으로 연결합니다.';
+      dialog.showModal();
     });
   });
 
