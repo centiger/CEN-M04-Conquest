@@ -286,7 +286,7 @@ function render(id){
       eraCard.style.display='none';
     }
   }
-  history.replaceState(null,'',`?hub=${h.id}`);
+//  history.replaceState(null,'',`?hub=${h.id}`);
 }
 function go(id){ render(id); window.scrollTo({top:0,behavior:'smooth'}); closeList(); }
 function openList(){
