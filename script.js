@@ -134,11 +134,11 @@
       const hub = group.dataset.hub || (group.querySelector('.hub-button')?.getAttribute('href') || '').match(/hub=([^&#]+)/)?.[1];
       if(!hub) return;
       if(kind === 'link'){
-        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}#connections`;
+        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}&view=meaning#connections`;
         return;
       }
       if(kind === 'integrated'){
-        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}#integration`;
+        location.href = `hubs/index.html?hub=${encodeURIComponent(hub)}&view=panorama#integration`;
         return;
       }
     });
