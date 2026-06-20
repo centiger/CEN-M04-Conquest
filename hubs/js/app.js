@@ -298,14 +298,23 @@ function closeList(){document.getElementById('listModal').classList.remove('show
 window.openList=openList; window.closeList=closeList;
 render(current);
 
-function cenScrollHashAfterRender(){
-  if(!location.hash) return;
-  const id = location.hash.replace('#','');
-  const el = document.getElementById(id);
+function cenScrollToExplore(){
+  const params = new URLSearchParams(location.search);
+  const view = params.get('view');
+  let targetId = location.hash ? location.hash.replace('#','') : '';
+  if(!targetId && view === 'meaning') targetId = 'connections';
+  if(!targetId && view === 'panorama') targetId = 'integration';
+  if(view === 'meaning') targetId = 'connections';
+  if(view === 'panorama') targetId = 'integration';
+  if(!targetId) return;
+  const el = document.getElementById(targetId);
   if(!el) return;
   setTimeout(()=>{
     el.scrollIntoView({block:'start'});
-    window.scrollBy(0,-90);
-  },120);
+    window.scrollBy(0,-120);
+  }, 180);
 }
-window.addEventListener('load',()=>setTimeout(cenScrollHashAfterRender,250));
+
+window.addEventListener('load',()=>setTimeout(cenScrollToExplore,350));
+
+setTimeout(cenScrollToExplore,500);
