@@ -244,7 +244,7 @@ function render(id){
   map.src=h.map||'assets/jordan-map.png';
   document.getElementById('mapText').textContent=h.mapText||'지도와 설명은 다음 단계에서 보완합니다.';
   document.getElementById('verse').innerHTML=h.verse||'대표성구는 다음 단계에서 입력합니다.';
-  fillList('events',h.events); fillList('meaning',h.meaning); fillList('connectionsList',h.connections); fillList('integrated',h.integrated); fillList('refs',h.refs);
+  fillList('events',h.events); fillList('meaning',h.meaning); fillList('connectionsContent',h.connections); fillList('integratedContent',h.integrated); fillList('refs',h.refs);
   document.getElementById('message').textContent=h.message||'이 허브는 다음 단계에서 제작합니다.';
   const prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), matrix=document.getElementById('matrixBtn');
   prev.textContent=h.prev?'이전':'Matrix'; prev.onclick=()=> h.prev ? go(h.prev) : location.href='../index.html';
@@ -297,24 +297,3 @@ function openList(){
 function closeList(){document.getElementById('listModal').classList.remove('show');}
 window.openList=openList; window.closeList=closeList;
 render(current);
-
-function cenScrollToExplore(){
-  const params = new URLSearchParams(location.search);
-  const view = params.get('view');
-  let targetId = location.hash ? location.hash.replace('#','') : '';
-  if(!targetId && view === 'meaning') targetId = 'connections';
-  if(!targetId && view === 'panorama') targetId = 'integration';
-  if(view === 'meaning') targetId = 'connections';
-  if(view === 'panorama') targetId = 'integration';
-  if(!targetId) return;
-  const el = document.getElementById(targetId);
-  if(!el) return;
-  setTimeout(()=>{
-    el.scrollIntoView({block:'start'});
-    window.scrollBy(0,-120);
-  }, 180);
-}
-
-window.addEventListener('load',()=>setTimeout(cenScrollToExplore,350));
-
-setTimeout(cenScrollToExplore,500);
