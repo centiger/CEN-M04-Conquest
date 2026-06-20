@@ -138,7 +138,7 @@ if(!byId[current]) current='jordan';
 function fillList(id, items){
   const el=document.getElementById(id);
   if(!el) return;
-  if(id==='connections' || id==='integrated'){
+  if(id==='connections' || id==='integrated' || id==='connectionsContent' || id==='integratedContent'){
     el.innerHTML=(items||[]).map(t=>{
       let s=String(t||'');
       let title='', body=s;
@@ -286,7 +286,7 @@ function render(id){
       eraCard.style.display='none';
     }
   }
-//  history.replaceState(null,'',`?hub=${h.id}`);
+  history.replaceState(null,'',`?hub=${h.id}${location.hash || ''}`);
 }
 function go(id){ render(id); window.scrollTo({top:0,behavior:'smooth'}); closeList(); }
 function openList(){
@@ -297,3 +297,15 @@ function openList(){
 function closeList(){document.getElementById('listModal').classList.remove('show');}
 window.openList=openList; window.closeList=closeList;
 render(current);
+
+function cenScrollToExploreFinal(){
+  if(!location.hash) return;
+  const id = location.hash.replace('#','');
+  const el = document.getElementById(id);
+  if(!el) return;
+  setTimeout(()=>{
+    el.scrollIntoView({block:'start'});
+    window.scrollBy(0,-110);
+  },150);
+}
+window.addEventListener('load',()=>setTimeout(cenScrollToExploreFinal,300));
