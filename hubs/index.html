@@ -1,127 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#081016" />
-  <meta name="description" content="CEN Bible 정복시대 Matrix" />
-  <meta property="og:title" content="CEN Bible 정복시대 Matrix" />
-  <meta property="og:description" content="요단강 도하부터 세겜 언약까지 정복시대 핵심사건 Matrix" />
-  <meta property="og:image" content="assets/conquest-bg-extended.png" />
-  <title>CEN Bible 정복시대 Matrix</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-
-<style id="CEN-UNIFIED-FOOTER-V5-CSS">
-body{padding-bottom:92px!important}
-.unifiedDock{position:fixed!important;left:50%!important;bottom:0!important;transform:translateX(-50%)!important;width:100%!important;max-width:560px!important;z-index:3000!important;padding:5px 10px calc(7px + env(safe-area-inset-bottom))!important;background:linear-gradient(to top,rgba(4,8,12,.98),rgba(9,18,26,.92))!important;border-top:1px solid rgba(247,216,137,.24)!important;box-shadow:0 -10px 24px rgba(0,0,0,.42)!important;backdrop-filter:blur(16px)!important;display:block!important;min-height:auto!important}
-.unifiedDock .coreFlow{margin:0 0 4px!important;text-align:center!important;color:#f7d889!important;font-weight:900!important;line-height:1.18!important;font-size:clamp(10px,2.65vw,14px)!important;letter-spacing:-.055em!important;text-shadow:0 2px 6px rgba(0,0,0,.85)!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
-.unifiedDock .coreFlow small{display:block!important;margin-bottom:1px!important;color:#d7b565!important;font-size:clamp(7px,1.9vw,10px)!important;font-weight:800!important;letter-spacing:-.03em!important;opacity:.95!important}
-.unifiedDock .unifiedNav{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:5px!important;width:100%!important;margin:0!important;padding:0!important}
-.unifiedDock .action{min-height:34px!important;border:1.2px solid rgba(247,216,137,.42)!important;border-radius:10px!important;background:linear-gradient(180deg,rgba(18,28,36,.92),rgba(8,15,22,.9))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 5px 12px rgba(0,0,0,.30)!important;color:#fff4d8!important;text-decoration:none!important;font-size:clamp(10px,2.55vw,13px)!important;font-weight:950!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1.0!important;text-align:center!important;letter-spacing:-.06em!important;text-shadow:0 2px 5px rgba(0,0,0,.75)!important;padding:0 2px!important;cursor:pointer!important}
-.unifiedDock .action.main,.unifiedDock .action[data-link="hub"],.unifiedDock .action[data-footer="hub"]{background:linear-gradient(180deg,#d49a22,#9b660d)!important;border-color:rgba(255,224,142,.82)!important;color:#fff8e6!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 5px 13px rgba(0,0,0,.34)!important}
-@media(min-width:680px){.unifiedDock{border-radius:24px 24px 0 0!important}}
-</style>
-
-
-<style id="CEN-FOOTER-HEIGHT-FIX-V5B">
-:root{--cen-footer-h:92px!important;}
-.phone.main-content{bottom:calc(92px + env(safe-area-inset-bottom))!important;}
-.app-container{background:#020b10!important;}
-</style>
-
-<style id="CEN-BLACK-GAP-FIX-V5C">
-/* v5c: 기존 하단 흐름/푸터 예약공간 제거 + 통합 네비게이터 기준으로 재정렬 */
-:root{--footer-h:92px!important;--flow-h:0px!important;--cen-footer-h:82px!important;}
-.flow-dock,.fixedFooter:not(.unifiedDock),.cen-bottom-solid-bg,.jesus-flow-strip,.era-flow-strip{display:none!important;height:0!important;min-height:0!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;overflow:hidden!important;pointer-events:none!important;}
-.viewport{bottom:calc(92px + env(safe-area-inset-bottom))!important;}
-.unifiedDock{height:auto!important;min-height:0!important;}
-.unifiedDock .action{min-height:34px!important;}
-.unifiedDock .coreFlow{margin-bottom:4px!important;}
-.unifiedDock .action[data-link="overview"]{letter-spacing:-.07em!important;}
-</style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+<title>정복시대 허브</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div id="app">
-    <main id="viewport" class="viewport" aria-label="정복시대 매트릭스 화면">
-      <section id="canvas" class="canvas">
-        <img class="matrix-bg" src="assets/conquest-bg-extended.png" alt="정복시대 매트릭스 배경" draggable="false" />
+<div class="wrap">
+  <header class="top">
+    <button onclick="location.href='../index.html'">← Matrix</button>
+    <button onclick="openList()">허브 목록</button>
+  </header>
 
-        <div class="matrix-title" aria-hidden="true">
-          <h1>정복시대 매트릭스</h1>
-          <p>약속의 땅을 차지하고 언약을 갱신하다</p>
-        </div>
+  <section class="head">
+    <div class="hubSymbol" id="hubIcon"></div>
+    <h1 id="title"></h1>
+    <div class="sub" id="subtitle"></div>
+    <div class="theme" id="theme"></div>
+  </section>
 
-        <div class="button-set row-1" data-event="요단강 도하" data-hub="jordan">
-          <a class="hub-button" href="hubs/index.html?hub=jordan" data-kind="hub"><span>🌊</span><b>요단강 도하 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>Meaning</b></button>
-          <button data-kind="integrated"><span>✦</span><b>파노라마</b></button>
-        </div>
-        <div class="button-set row-2" data-event="여리고 함락" data-hub="jericho">
-          <a class="hub-button" href="hubs/index.html?hub=jericho" data-kind="hub"><span>🏰</span><b>여리고 함락 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>Meaning</b></button>
-          <button data-kind="integrated"><span>✦</span><b>파노라마</b></button>
-        </div>
-        <div class="button-set row-3" data-event="가나안 정복" data-hub="conquest">
-          <a class="hub-button" href="hubs/index.html?hub=conquest" data-kind="hub"><span>⚔️</span><b>가나안 정복 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>Meaning</b></button>
-          <button data-kind="integrated"><span>✦</span><b>파노라마</b></button>
-        </div>
-        <div class="button-set row-4" data-event="기업 분배" data-hub="inheritance">
-          <a class="hub-button" href="hubs/index.html?hub=inheritance" data-kind="hub"><span>🗺️</span><b>기업 분배 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>Meaning</b></button>
-          <button data-kind="integrated"><span>✦</span><b>파노라마</b></button>
-        </div>
-        <div class="button-set row-5" data-event="세겜 언약" data-hub="shechem">
-          <a class="hub-button" href="hubs/index.html?hub=shechem" data-kind="hub"><span>📜</span><b>세겜 언약 허브</b></a>
-          <button data-kind="link"><span>🔗</span><b>Meaning</b></button>
-          <button data-kind="integrated"><span>✦</span><b>파노라마</b></button>
-        </div>
+  <section class="mapCard mapFirst">
+    <img id="map" alt="허브 지도"/>
+    <div class="mapText" id="mapText"></div>
+  </section>
 
-      </section>
-    </main>
+  <section class="grid">
+    <article class="card"><h2>대표성구</h2><div class="verse" id="verse"></div></article>
+    <article class="card"><h2>핵심사건</h2><ul id="events"></ul></article>
+    <article class="card"><h2>핵심의미</h2><ul id="meaning"></ul></article>
+    <article class="card"><h2>Meaning</h2><div id="connections" class="exploreGrid"></div></article>
+    <article class="card"><h2>파노라마</h2><div id="integrated" class="exploreGrid"></div></article>
+    <article class="card"><h2>관련성경</h2><ul id="refs"></ul></article>
+    <article class="card message"><h2>핵심메시지</h2><p id="message"></p></article>
+  </section>
 
-    <footer class="footer actions unifiedDock" aria-label="정복시대 하단 네비게이터">
-  <div class="coreFlow"><small>정복시대 핵심흐름</small>요단강 → 여리고 → 정복 → 기업 → 세겜</div>
-  <nav class="unifiedNav" aria-label="하단 메뉴">
-    <button class="action" type="button" data-link="timeline" data-footer="timeline">성경연표</button>
-    <button class="action" type="button" data-link="connect" data-footer="connect">주제탐험</button>
-    <button class="action" type="button" data-link="overview" data-footer="overview">한눈에성경</button>
-    <button class="action main" type="button" data-link="hub" data-footer="hub">허브</button>
-  </nav>
-</footer>
-  </div>
-
-  <dialog id="infoDialog" class="dialog">
-    <div class="dialog-card">
-      <h2 id="dialogTitle">정복시대</h2>
-      <p id="dialogText">첫 버전에서는 버튼 위치와 조작감을 확인합니다.</p>
-      <div class="dialog-actions">
-        <button id="closeDialog" type="button">닫기</button>
-      </div>
+  <section class="nextEraCard" id="nextEraCard" style="display:none">
+    <div class="nextEraText">
+      <strong id="nextEraTitle">다음 시대</strong>
+      <span id="nextEraDesc"></span>
     </div>
-  </dialog>
+    <button id="nextEraBtn">사사시대 매트릭스</button>
+  </section>
+</div>
 
-  <script src="script.js"></script>
+<nav class="bottom">
+  <button id="prevBtn">이전</button>
+  <button id="matrixBtn" onclick="location.href='../index.html'">Matrix</button>
+  <button id="nextBtn">다음</button>
+</nav>
 
-<script id="CEN-UNIFIED-FOOTER-V5-LINKS">
-(function(){
-  const links={
-    timeline:'https://centiger.github.io/CEN-Chronology/?view=timeline',
-    connect:'https://centiger.github.io/CEN-Chronology/',
-    overview:'https://centiger.github.io/CEN-Bible2.0/#overview66'
-  };
-  document.addEventListener('click',function(e){
-    const btn=e.target.closest && e.target.closest('.unifiedDock .action');
-    if(!btn) return;
-    const key=btn.dataset.link || btn.dataset.footer || '';
-    if(key==='timeline'||key==='connect'||key==='overview'){
-      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
-      location.href=links[key];
-    }
-  },true);
-})();
-</script>
+<div class="listModal" id="listModal" aria-modal="true" role="dialog">
+  <div class="listPanel">
+    <button class="listClose" onclick="closeList()">×</button>
+    <h2>정복시대 허브 목록</h2>
+    <div class="hubList" id="hubList"></div>
+  </div>
+</div>
 
+<script src="js/app.js"></script>
 </body>
 </html>
