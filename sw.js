@@ -1,4 +1,4 @@
-const CACHE = 'cen-conquest-matrix-v21-final-tweak';
+const CACHE = 'cen-conquest-matrix-v22-bible-links';
 const ASSETS = [
   './',
   './index.html',
