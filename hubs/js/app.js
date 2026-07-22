@@ -1,3 +1,51 @@
+const CEN_BIBLE_URL = 'https://centiger.github.io/CEN-Bible2.0/';
+
+function escapeHtml(value){
+  return String(value ?? '').replace(/[&<>"]/g, ch => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'
+  }[ch]));
+}
+
+function normalizeCenBibleRef(value){
+  let ref=String(value||'').trim().replace(/\s+/g,' ');
+  if(!ref) return '';
+
+  // 장 범위: 여호수아 1-2장 / 1~2장 → 시작 장 1절
+  let m=ref.match(/^(.+?)\s*(\d+)\s*[~～\-–—]\s*\d+\s*장$/);
+  if(m) return `${m[1].trim()} ${m[2]}:1`;
+
+  // 장만 표기: 여호수아 3장 → 여호수아 3:1
+  m=ref.match(/^(.+?)\s*(\d+)\s*장$/);
+  if(m) return `${m[1].trim()} ${m[2]}:1`;
+
+  // 절 범위: 여호수아 3:7-8 → 여호수아 3:7
+  m=ref.match(/^(.+?)\s*(\d+)\s*:\s*(\d+)\s*[~～\-–—]\s*\d+$/);
+  if(m) return `${m[1].trim()} ${m[2]}:${m[3]}`;
+
+  // 장 표기 생략: 여호수아 3 → 여호수아 3:1
+  m=ref.match(/^(.+?)\s+(\d+)$/);
+  if(m) return `${m[1].trim()} ${m[2]}:1`;
+
+  return ref.replace(/\s*:\s*/g,':');
+}
+
+function cenBibleUrl(ref){
+  return `${CEN_BIBLE_URL}?ref=${encodeURIComponent(normalizeCenBibleRef(ref))}`;
+}
+
+function bibleLinkHtml(label,className=''){
+  const text=String(label||'').trim();
+  if(!text) return '';
+  return `<a class="bibleLink ${className}" href="${escapeHtml(cenBibleUrl(text))}" aria-label="CEN Bible 2.0에서 ${escapeHtml(text)} 열기">${escapeHtml(text)}</a>`;
+}
+
+function renderVerseHtml(value){
+  const html=String(value||'');
+  return html.replace(/<strong>\s*([^<]+?)\s*<\/strong>/i, (_,ref) =>
+    `<strong>${bibleLinkHtml(ref,'verseRef')}</strong>`
+  );
+}
+
 const HUBS = [
   {
     id:'jordan', icon:'🌊', title:'요단강 도하 허브', subtitle:'약속의 땅으로 들어가는 믿음의 첫걸음',
@@ -155,6 +203,10 @@ function fillList(id, items){
     }).join('');
     return;
   }
+  if(id==='refs'){
+    el.innerHTML=(items||[]).map(ref=>`<li>${bibleLinkHtml(ref,'refLink')}</li>`).join('');
+    return;
+  }
   el.innerHTML='';
   (items||['다음 단계에서 세부 내용을 연결합니다.']).forEach(t=>{
     const li=document.createElement('li');
@@ -243,7 +295,7 @@ function render(id){
   const map=document.getElementById('map');
   map.src=h.map||'assets/jordan-map.png';
   document.getElementById('mapText').textContent=h.mapText||'지도와 설명은 다음 단계에서 보완합니다.';
-  document.getElementById('verse').innerHTML=h.verse||'대표성구는 다음 단계에서 입력합니다.';
+  document.getElementById('verse').innerHTML=renderVerseHtml(h.verse||'대표성구는 다음 단계에서 입력합니다.');
   fillList('events',h.events); fillList('meaning',h.meaning); fillList('connectionsContent',h.connections); fillList('integratedContent',h.integrated); fillList('refs',h.refs);
   document.getElementById('message').textContent=h.message||'이 허브는 다음 단계에서 제작합니다.';
   const prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), matrix=document.getElementById('matrixBtn');
